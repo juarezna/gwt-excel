@@ -9,13 +9,15 @@ import com.google.gwt.user.client.ui.VerticalPanel;
  * @author juarezna@gmail.com
   */
 public class GwtExcel implements EntryPoint {
+	private Test test;
+	
 	public void onModuleLoad() {
 		RootPanel rootPanel = RootPanel.get();
 		
 		VerticalPanel verticalPanel = new VerticalPanel();
-		rootPanel.add(verticalPanel);
+		rootPanel.add(verticalPanel,0,0);
 		
-		Test test = new Test();
+		test = new Test();
 		verticalPanel.add(test);
 	}
 }

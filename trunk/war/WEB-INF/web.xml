@@ -10,7 +10,7 @@
 		<servlet-class>br.com.athustech.gwtexcel.server.GwtExcelExport</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>Action</servlet-name>
+		<servlet-name>GwtExcel</servlet-name>
 		<url-pattern>/gwtexcel/servletGwtExcel</url-pattern>
 	</servlet-mapping>
 

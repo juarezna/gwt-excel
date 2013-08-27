@@ -3,8 +3,26 @@
 	<g:HTMLPanel>
 		<g:VerticalPanel>
 			<g:FlexTable ui:field="flexTable"/>
-			<g:Grid ui:field="grid"/>
-			<g:Button ui:field="button" text="Button"/>
+			<g:Grid ui:field="grid">
+				<g:row>
+					<g:customCell>
+						<g:Label text="New Label"/>
+					</g:customCell>
+					<g:customCell>
+						<g:Label text="New Label"/>
+					</g:customCell>
+				</g:row>
+				<g:row>
+					<g:customCell>
+						<g:Label text="New Label"/>
+					</g:customCell>
+					<g:customCell>
+						<g:Label text="New Label"/>
+					</g:customCell>
+				</g:row>
+			</g:Grid>
+			<g:Button ui:field="button1" text="Button1"/>
+			<g:Button ui:field="button2" text="Button2"/>
 		</g:VerticalPanel>
 
 	</g:HTMLPanel>

@@ -16,7 +16,8 @@ public class Test extends Composite {
 	private static TestUiBinder uiBinder = GWT.create(TestUiBinder.class);
 	@UiField FlexTable flexTable;
 	@UiField Grid grid;
-	@UiField Button button;
+	@UiField Button button1;
+	@UiField Button button2;
 
 	interface TestUiBinder extends UiBinder<Widget, Test> {
 	}
@@ -33,8 +34,16 @@ public class Test extends Composite {
 		GwtExcelExport GwtExcelExport = new GwtExcelExport(flexTable);
 	}
 	
-	@UiHandler("button")
-	void onButtonClick(ClickEvent event) {
+	public void exportGrid() {
+		GwtExcelExport GwtExcelExport = new GwtExcelExport(grid);
+	}	
+	
+	@UiHandler("button1")
+	void onButton1Click(ClickEvent event) {
 		exportFlexTable();
+	}
+	@UiHandler("button2")
+	void onButton2Click(ClickEvent event) {
+		exportGrid();
 	}
 }
