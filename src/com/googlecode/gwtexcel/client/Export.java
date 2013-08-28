@@ -8,15 +8,15 @@ import com.google.gwt.user.client.ui.HTMLTable;
 import com.google.gwt.user.client.ui.Hidden;
 import com.google.gwt.user.client.ui.RootPanel;
 
-public class GwtExcelExport {
+public class Export {
 
-	public GwtExcelExport(FlexTable flexTable) {
+	public Export(FlexTable flexTable) {
 		HTMLTable table = flexTable;
 		String html = table.getElement().getString();
 		excel(html);
 	}
 	
-	public GwtExcelExport(Grid grid) {
+	public Export(Grid grid) {
 		HTMLTable table = grid;
 		String html = table.getElement().getString();
 		excel(html);
