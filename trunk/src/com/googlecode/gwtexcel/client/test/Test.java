@@ -1,6 +1,6 @@
 package com.googlecode.gwtexcel.client.test;
 
-import com.googlecode.gwtexcel.client.GwtExcelExport;
+import com.googlecode.gwtexcel.client.Export;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
@@ -33,11 +33,11 @@ public class Test extends Composite {
 		flexTable.setText(0, 0, "Column0");
 		flexTable.setText(1, 1, "Column1");
 		flexTable.setText(2, 2, "Column2");	
-		GwtExcelExport GwtExcelExport = new GwtExcelExport(flexTable);
+		Export GwtExcelExport = new Export(flexTable);
 	}
 	
 	public void exportGrid() {
-		GwtExcelExport GwtExcelExport = new GwtExcelExport(grid);
+		Export GwtExcelExport = new Export(grid);
 	}	
 	
 	@UiHandler("button1")

@@ -8,7 +8,7 @@
   <!-- Servlets -->
   	<servlet>
 		<servlet-name>GwtExcel</servlet-name>
-		<servlet-class>com.googlecode.gwtexcel.server.GwtExcelExport</servlet-class>
+		<servlet-class>com.googlecode.gwtexcel.server.Export</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>GwtExcel</servlet-name>
