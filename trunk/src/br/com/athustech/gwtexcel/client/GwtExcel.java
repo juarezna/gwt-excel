@@ -1,5 +1,7 @@
 package br.com.athustech.gwtexcel.client;
 
+import br.com.athustech.gwtexcel.client.test.Test;
+
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
