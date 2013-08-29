@@ -6,21 +6,12 @@
 
 	<!-- Servlets -->
 	<servlet>
-		<servlet-name>GWTExcelExport</servlet-name>
+		<servlet-name>GWTExcel</servlet-name>
 		<servlet-class>com.googlecode.gwtexcel.server.Export</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>GWTExcelExport</servlet-name>
+		<servlet-name>GWTExcel</servlet-name>
 		<url-pattern>/gwtexcel/servletGWTExcelExport</url-pattern>
-	</servlet-mapping>
-
-	<servlet>
-		<servlet-name>Convert</servlet-name>
-		<servlet-class>com.googlecode.gwtexcel.server.Convert</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>Convert</servlet-name>
-		<url-pattern>/gwtexcel/servletConvert</url-pattern>
 	</servlet-mapping>
 
 	<!-- Default page to serve -->
