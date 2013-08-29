@@ -1,0 +1,24 @@
+#How can I use?
+
+A quick and easy way to export data from GWT to excel. Can be called from any GWT event.
+
+Change your aplication.gwt.xml
+<inherits name='com.googlecode.gwtexcel.GWTExcel'/>
+
+Change your web.xml
+<servlet>
+  <servlet-name>GWTExcel</servlet-name>
+  <servlet-class>com.googlecode.gwtexcel.server.Export</servlet-class>
+</servlet>
+  <servlet-mapping>
+  <servlet-name>GWTExcel</servlet-name>
+  <url-pattern>/softruv/servletGWTExcelExport</url-pattern>
+</servlet-mapping>	
+	
+
+
+java.lang.IllegalStateException: Form too large2791485>200000
+
+Download from Google Drive:
+https://drive.google.com/folderview?id=0B2CSRx3jHAEOS3VFUHo5ZlZhVTA&usp=sharing
+
