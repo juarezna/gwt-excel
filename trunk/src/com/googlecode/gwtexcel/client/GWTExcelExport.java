@@ -1,7 +1,6 @@
 package com.googlecode.gwtexcel.client;
 
 import com.google.gwt.core.client.GWT;
-import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.FlexTable;
 import com.google.gwt.user.client.ui.FormPanel;
 import com.google.gwt.user.client.ui.Grid;
@@ -9,8 +8,9 @@ import com.google.gwt.user.client.ui.HTMLTable;
 import com.google.gwt.user.client.ui.Hidden;
 import com.google.gwt.user.client.ui.RootPanel;
 
+
 /**
- * This class is responsible for receiving and converting tables from GWT to Excel. 
+ * This class converts tables from GWT to Excel. 
  * @author juarezna@gmail.com
  */
 public class GWTExcelExport {
@@ -21,7 +21,7 @@ public class GWTExcelExport {
 	}
 	
 	/**
-	 * This constructor method can be used to send the FlexTable.<br>
+	 * This constructor method can be used to set the FlexTable.<br>
 	 * After that, run convert method.<br> 
 	 * @param flexTable = FlexTable with data.<br>
 	 */
@@ -30,7 +30,7 @@ public class GWTExcelExport {
 	}
 
 	/**
-	 * This constructor method can be used to send the Grid.<br>
+	 * This constructor method can be used to set the Grid.<br>
 	 * After that, run convert method.<br>
 	 * @param grid = Grid with data.<br>
 	 */
@@ -58,30 +58,12 @@ public class GWTExcelExport {
 		html = table.getElement().getString();
 	}
 
-	public void setHtml(String html) {
-		this.html = html;
-	}	
-	
-	public void convert() {
-		acentToHTML(html);
-	}
-	
 	/**
-	 * Convert acent to html.<br>
-	 * @param html = table html
+	 * Convert GWT tables to Excel.<br>
 	 */
-	private void acentToHTML(String html) {
-		ConvertSRV.Instance.getInstance().acentToHTML(html, new AsyncCallback<String>() {
-			public void onFailure(Throwable caught) {
-				if (caught != null) {
-					export("Several Error!!");
-				}
-			}
-			public void onSuccess(String html) {
-				export(html);
-			}
-		});		
-	}	
+	public void convert() {
+		export(HTMLEntities.htmlentities(html));
+	}
 	
 	/**
 	 * Convert GWT tables to Excel.<br>
@@ -100,4 +82,6 @@ public class GWTExcelExport {
 			formPanel.submit();
 		}
 	}	
+	
+	
 }
