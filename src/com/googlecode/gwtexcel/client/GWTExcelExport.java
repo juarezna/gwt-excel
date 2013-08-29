@@ -1,6 +1,7 @@
 package com.googlecode.gwtexcel.client;
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.FlexTable;
 import com.google.gwt.user.client.ui.FormPanel;
 import com.google.gwt.user.client.ui.Grid;
@@ -57,10 +58,35 @@ public class GWTExcelExport {
 		html = table.getElement().getString();
 	}
 
-	/**
-	 * Convert GWT tables to Excel. 
-	 */
+	public void setHtml(String html) {
+		this.html = html;
+	}	
+	
 	public void convert() {
+		acentToHTML(html);
+	}
+	
+	/**
+	 * Convert acent to html.<br>
+	 * @param html = table html
+	 */
+	private void acentToHTML(String html) {
+		ConvertSRV.Instance.getInstance().acentToHTML(html, new AsyncCallback<String>() {
+			public void onFailure(Throwable caught) {
+				if (caught != null) {
+					export("Several Error!!");
+				}
+			}
+			public void onSuccess(String html) {
+				export(html);
+			}
+		});		
+	}	
+	
+	/**
+	 * Convert GWT tables to Excel.<br>
+	 */
+	public void export(String html) {
 		if ( ! html.isEmpty()) {
 			FormPanel formPanel = new FormPanel();
 			String url = GWT.getModuleBaseURL() + "servletGWTExcelExport";
@@ -68,35 +94,10 @@ public class GWTExcelExport {
 			formPanel.setAction(url);
 			Hidden hf=new Hidden();
 			hf.setName("html");
-			hf.setValue(noAcent(html));
+			hf.setValue(html);
 			formPanel.add(hf);
 			RootPanel.get().add(formPanel);
 			formPanel.submit();
 		}
-	}
-
-	public void setHtml(String html) {
-		this.html = html;
 	}	
-	
-	public String noAcent(String content) {
-		return content.replaceAll("[„‚‡·‰]", "a")  
-				.replaceAll("[ÍËÈÎ]", "e")  
-				.replaceAll("[ÓÏÌÔ]", "i")  
-				.replaceAll("[ıÙÚÛˆ]", "o")  
-				.replaceAll("[˚˙˘¸]", "u")  
-				.replaceAll("[√¬¿¡ƒ]", "A")  
-				.replaceAll("[ »…À]", "E")  
-				.replaceAll("[ŒÃÕœ]", "I")  
-				.replaceAll("[’‘“”÷]", "O")  
-				.replaceAll("[€Ÿ⁄‹]", "U")  
-				.replaceAll("›","Y")  
-				.replaceAll("Á", "c")  
-				.replaceAll("«", "C")  
-				.replaceAll("Ò", "n")  
-				.replaceAll("—", "N")
-				.replaceAll("[˝ˇ]","y");  
-	}  
-	
-
 }

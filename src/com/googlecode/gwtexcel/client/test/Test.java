@@ -1,5 +1,7 @@
 package com.googlecode.gwtexcel.client.test;
 
+import java.io.UnsupportedEncodingException;
+
 import com.googlecode.gwtexcel.client.GWTExcelExport;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
@@ -29,7 +31,7 @@ public class Test extends Composite {
 
 	public void exportFlexTable() {
 		//flextTable
-		flexTable.setText(0, 0, "jo�o da jos�");
+		flexTable.setText(0, 0, "ãâàáä êèéë îìíï õôòóö ûúùü ÃÀÁÄ ÊÈÉË ÎÌÍÏ ÕÔÒÓÖ ÛÙÚÜÝ ç Ç ñ Ñ ýÿ");
 		flexTable.setText(1, 1, "FlexTable2");
 		flexTable.setText(2, 2, "FlexTable3");	
 		GWTExcelExport gwtExcelExport = new GWTExcelExport(flexTable);
