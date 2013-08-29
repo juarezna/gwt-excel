@@ -7,12 +7,12 @@
 
   <!-- Servlets -->
   	<servlet>
-		<servlet-name>GwtExcel</servlet-name>
+		<servlet-name>GWTExcelExport</servlet-name>
 		<servlet-class>com.googlecode.gwtexcel.server.Export</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>GwtExcel</servlet-name>
-		<url-pattern>/gwtexcel/servletGwtExcel</url-pattern>
+		<servlet-name>GWTExcelExport</servlet-name>
+		<url-pattern>/gwtexcel/servletGWTExcelExport</url-pattern>
 	</servlet-mapping>
 
   <!-- Default page to serve -->

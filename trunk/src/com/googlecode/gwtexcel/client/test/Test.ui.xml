@@ -6,23 +6,23 @@
 			<g:Grid ui:field="grid">
 				<g:row>
 					<g:customCell>
-						<g:Label text="New Label"/>
+						<g:Label text="Grid 1"/>
 					</g:customCell>
 					<g:customCell>
-						<g:Label text="New Label"/>
+						<g:Label text="Grid 2"/>
 					</g:customCell>
 				</g:row>
 				<g:row>
 					<g:customCell>
-						<g:Label text="New Label"/>
+						<g:Label text="Grid 3"/>
 					</g:customCell>
 					<g:customCell>
-						<g:Label text="New Label"/>
+						<g:Label text="Grid 4"/>
 					</g:customCell>
 				</g:row>
 			</g:Grid>
-			<g:Button ui:field="button1" text="Button1"/>
-			<g:Button ui:field="button2" text="Button2"/>
+			<g:Button ui:field="button1" text="FlexTable"/>
+			<g:Button ui:field="button2" text="Grid"/>
 		</g:VerticalPanel>
 
 	</g:HTMLPanel>

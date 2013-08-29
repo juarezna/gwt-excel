@@ -1,7 +1,6 @@
 package com.googlecode.gwtexcel.client.test;
 
-import com.googlecode.gwtexcel.client.Export;
-
+import com.googlecode.gwtexcel.client.GWTExcelExport;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.user.client.ui.Composite;
@@ -30,14 +29,16 @@ public class Test extends Composite {
 
 	public void exportFlexTable() {
 		//flextTable
-		flexTable.setText(0, 0, "Column0");
-		flexTable.setText(1, 1, "Column1");
-		flexTable.setText(2, 2, "Column2");	
-		Export GwtExcelExport = new Export(flexTable);
+		flexTable.setText(0, 0, "joão da josé");
+		flexTable.setText(1, 1, "FlexTable2");
+		flexTable.setText(2, 2, "FlexTable3");	
+		GWTExcelExport gwtExcelExport = new GWTExcelExport(flexTable);
+		gwtExcelExport.convert();
 	}
 	
 	public void exportGrid() {
-		Export GwtExcelExport = new Export(grid);
+		GWTExcelExport gwtExcelExport = new GWTExcelExport(grid);
+		gwtExcelExport.convert();
 	}	
 	
 	@UiHandler("button1")
