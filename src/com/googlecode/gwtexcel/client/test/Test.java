@@ -1,18 +1,16 @@
 package com.googlecode.gwtexcel.client.test;
 
-import java.io.UnsupportedEncodingException;
-
-import com.googlecode.gwtexcel.client.GWTExcelExport;
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.uibinder.client.UiBinder;
-import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.Widget;
 import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.uibinder.client.UiHandler;
+import com.google.gwt.user.client.ui.Button;
+import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FlexTable;
 import com.google.gwt.user.client.ui.Grid;
-import com.google.gwt.user.client.ui.Button;
-import com.google.gwt.uibinder.client.UiHandler;
-import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.user.client.ui.Widget;
+import com.googlecode.gwtexcel.client.GWTExcelExport;
 
 public class Test extends Composite {
 
@@ -35,12 +33,13 @@ public class Test extends Composite {
 		flexTable.setText(1, 1, "FlexTable2");
 		flexTable.setText(2, 2, "FlexTable3");	
 		GWTExcelExport gwtExcelExport = new GWTExcelExport(flexTable);
-		gwtExcelExport.convert();
+		gwtExcelExport.export();
 	}
 	
 	public void exportGrid() {
 		GWTExcelExport gwtExcelExport = new GWTExcelExport(grid);
-		gwtExcelExport.convert();
+		gwtExcelExport.setFileExcelName("catapora.xls");
+		gwtExcelExport.export();
 	}	
 	
 	@UiHandler("button1")

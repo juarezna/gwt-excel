@@ -7,6 +7,7 @@ import com.google.gwt.user.client.ui.Grid;
 import com.google.gwt.user.client.ui.HTMLTable;
 import com.google.gwt.user.client.ui.Hidden;
 import com.google.gwt.user.client.ui.RootPanel;
+import com.google.gwt.user.client.ui.VerticalPanel;
 
 
 /**
@@ -15,6 +16,7 @@ import com.google.gwt.user.client.ui.RootPanel;
  */
 public class GWTExcelExport {
 	String html;
+	String fileExcelName = "export.xls";
 
 	public GWTExcelExport() {
 
@@ -59,25 +61,39 @@ public class GWTExcelExport {
 	}
 
 	/**
-	 * Convert GWT tables to Excel.<br>
+	 * Give a name to excel file.<br>
+	 * @param fileExcelName = Name of file (ex: file.xls).<br>
 	 */
-	public void convert() {
+	public void setFileExcelName(String fileExcelName) {
+		this.fileExcelName = fileExcelName;
+	}
+
+	/**
+	 * Export GWT tables to Excel.<br>
+	 */
+	public void export() {
 		export(HTMLEntities.htmlentities(html));
 	}
 	
 	/**
 	 * Convert GWT tables to Excel.<br>
 	 */
-	public void export(String html) {
+	private void export(String html) {
 		if ( ! html.isEmpty()) {
 			FormPanel formPanel = new FormPanel();
 			String url = GWT.getModuleBaseURL() + "servletGWTExcelExport";
 			formPanel.setMethod(FormPanel.METHOD_POST);
 			formPanel.setAction(url);
-			Hidden hf=new Hidden();
-			hf.setName("html");
-			hf.setValue(html);
-			formPanel.add(hf);
+			VerticalPanel vp = new VerticalPanel();
+			Hidden fileName =new Hidden();
+			fileName.setName("fileExcelName");
+			fileName.setValue(fileExcelName);
+			vp.add(fileName);
+			Hidden content = new Hidden();
+			content.setName("html");
+			content.setValue(html);
+			vp.add(content);
+			formPanel.add(vp);
 			RootPanel.get().add(formPanel);
 			formPanel.submit();
 		}
