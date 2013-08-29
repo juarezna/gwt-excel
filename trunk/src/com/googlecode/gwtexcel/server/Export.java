@@ -26,7 +26,8 @@ public class Export extends HttpServlet {
 	}
 
 	private void exportExcel(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		String fileName = "export.xls";
+		//String fileName = "export.xls";
+		String fileName = request.getParameter("fileExcelName");
 		String html = request.getParameter("html");			
 		byte[] b = html.getBytes();  
 		ServletOutputStream outputStream = response.getOutputStream();
