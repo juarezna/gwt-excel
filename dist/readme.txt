@@ -3,7 +3,7 @@ GWT-Excel
 How can I use?
 
 Download and add in your classpath:
-gwt-excel-1.0.0.jar
+gwt-excel-1.0.x.jar
 
 Add in your .gwt.xml:
 <inherits name='com.googlecode.gwtexcel.GWTExcel'/>
